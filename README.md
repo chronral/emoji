@@ -1,6 +1,6 @@
 # chronral / emoji
 
-Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with C2PA Content Credentials and checksum manifests.
+Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with C2PA Content Credentials and SHA-256 checksum manifests.
 
 ## Packs
 
@@ -9,7 +9,8 @@ Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with C2PA Cont
 * **Format:** `240×240` transparent PNG (32-bit RGBA)
 * **Count:** 8 stickers
 * **Curated by:** `@chronral`
-* **Provenance:** C2PA Content Credentials ([`chronral-c2pa-root.pem`](./certs/chronral-c2pa-root.pem))
+* **Note:** AI-assisted fan-style chibi sticker pack
+* **Provenance:** C2PA Content Credentials ([`certs/chronral-c2pa-root.pem`](./certs/chronral-c2pa-root.pem)) + DigiCert RFC 3161 TSA
 * **Manifest:** [`packs/meoshi/manifest.json`](./packs/meoshi/manifest.json)
 * **Checksums:** [`packs/meoshi/SHA256SUMS.txt`](./packs/meoshi/SHA256SUMS.txt)
 
@@ -21,6 +22,23 @@ Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with C2PA Cont
 | :---: | :---: | :---: | :---: |
 | <img src="./packs/meoshi/png/05-shocked.png" width="96" alt="shocked" /> | <img src="./packs/meoshi/png/06-laughing.png" width="96" alt="laughing" /> | <img src="./packs/meoshi/png/07-pouting.png" width="96" alt="pouting" /> | <img src="./packs/meoshi/png/08-crying.png" width="96" alt="crying" /> |
 
+## Releases
+
+* **`meoshi-v1.1.0`** — Embedded C2PA Content Credentials (`~700 KB` per PNG), recommended for provenance and archival.
+* **`meoshi-v1.0.0`** — Lightweight raw PNGs (`~67 KB` per PNG), recommended for chat platforms with strict upload size limits (e.g. Discord / Telegram).
+
+## Verification
+
+```bash
+# Verify file integrity
+cd packs/meoshi && sha256sum -c SHA256SUMS.txt
+
+# Inspect embedded C2PA Content Credentials
+c2patool packs/meoshi/png/01-wave-hi.png --info
+```
+
+> Public C2PA verifiers will report `signingCredential.untrusted` because assets are signed with a self-signed root CA (`certs/chronral-c2pa-root.pem`), while still validating author metadata, timestamps, and tamper-evident hashes.
+
 ## Usage & Attribution
 
-See [USAGE.md](./USAGE.md).
+Assets in this repository are AI-assisted fan-style sticker packs curated for personal and non-commercial use. See [USAGE.md](./USAGE.md) for full guidelines.

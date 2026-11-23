@@ -1,6 +1,6 @@
 # chronral / emoji
 
-Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with checksum manifests.
+Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with C2PA Content Credentials and checksum manifests.
 
 ## Packs
 
@@ -9,6 +9,7 @@ Custom sticker & emoji packs curated by **chronral** (PNG / GIF), with checksum 
 * **Format:** `240×240` transparent PNG (32-bit RGBA)
 * **Count:** 8 stickers
 * **Curated by:** `@chronral`
+* **Provenance:** C2PA Content Credentials ([`chronral-c2pa-root.pem`](./certs/chronral-c2pa-root.pem))
 * **Manifest:** [`packs/meoshi/manifest.json`](./packs/meoshi/manifest.json)
 * **Checksums:** [`packs/meoshi/SHA256SUMS.txt`](./packs/meoshi/SHA256SUMS.txt)
 
